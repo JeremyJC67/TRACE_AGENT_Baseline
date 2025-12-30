@@ -11,6 +11,7 @@ from browser_use.browser.views import BrowserStateHistory
 class FailureType(str, Enum):
 	"""Standardized failure categories for trace analysis."""
 
+	DOMAIN_DRIFT = 'DomainDrift'
 	TIMEOUT = 'Timeout'
 	ELEMENT_NOT_FOUND = 'ElementNotFound'
 	CLICK_FAILED = 'ClickFailed'

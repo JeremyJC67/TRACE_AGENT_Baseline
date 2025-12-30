@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, TYPE_CHECKING
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 
 from browser_use.agent.views import AgentOutput
 from browser_use.browser.views import BrowserStateHistory, BrowserStateSummary
@@ -88,7 +88,7 @@ class TraceRecorder:
 		trace = self._pending.pop(step_id, TraceStep(step_id=step_id, timestamp=_utc_now()))
 
 		result_status, error_msg = _summarize_results(history_item.result)
-		failure_type = self._failure_classifier(error_msg, history_item.state) if error_msg else None
+		failure_type = self._failure_classifier(error_msg, history_item.state)
 
 		latency_ms = None
 		if history_item.metadata:

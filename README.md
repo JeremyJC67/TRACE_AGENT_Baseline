@@ -252,6 +252,20 @@ For production use cases, use our [Browser Use Cloud API](https://cloud.browser-
 - High-performance parallel execution
 </details>
 
+## WebArena-Verified Integration (Optional)
+
+This repo can optionally use WebArena-Verified as a pinned submodule:
+`third_party/webarena_verified/` (commit `c6ef431182a4c86bdb51ab7ba3289a4f8466f6ef`).
+The integration is **optional** and does not affect the core trace-agent loop.
+
+Smoke test:
+```bash
+uv run scripts/smoke_webarena_verified.py
+```
+
+Evaluator usage is gated behind a runner flag. If disabled or required files are missing,
+the runner behaves exactly as before.
+
 <br/>
 
 <div align="center">
